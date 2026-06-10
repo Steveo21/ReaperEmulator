@@ -124,18 +124,31 @@ def touch_for_telemetry(ctx: Context, path: Path) -> bool:
         return False
 
 
-def enumerate_only(root: Path, exts: list[str]) -> int:
-    """List (NOT open) files under root matching exts. Returns match count.
+DOC_MAX = 2 * 1024 * 1024   # docs/text/etc: <2MB (per writeup)
+IMG_MAX = 6 * 1024 * 1024   # .png: <6MB
+
+
+def enumerate_only(root: Path, doc_exts: list[str], img_exts: list[str]) -> int:
+    """List (NOT open) files under root matching the Filegrabber selection.
 
     Filegrabber discovery signal — directory traversal of the real Desktop/
-    Documents tree. Reads names/metadata only; never opens a real file's content.
+    Documents tree. Reads names/metadata only (suffix + stat size); never opens
+    a real file's content. Applies the malware's size caps: doc-type exts <2MB,
+    .png <6MB.
     """
     if not root.exists():
         return 0
     count = 0
     try:
         for p in root.rglob("*"):
-            if p.is_file() and p.suffix.lower() in exts:
+            if not p.is_file():
+                continue
+            suf = p.suffix.lower()
+            try:
+                size = p.stat().st_size  # metadata only, no content read
+            except OSError:
+                continue
+            if (suf in doc_exts and size < DOC_MAX) or (suf in img_exts and size < IMG_MAX):
                 count += 1
                 if count >= 5000:
                     break
@@ -366,7 +379,7 @@ def p_filegrabber(ctx: Context) -> None:
     h = ctx.home()
     found = 0
     for root in (h / "Desktop", h / "Documents"):
-        found += enumerate_only(root, FILEGRABBER_EXTS + FILEGRABBER_IMG)
+        found += enumerate_only(root, FILEGRABBER_EXTS, FILEGRABBER_IMG)
 
     decoys = []
     for root, name in ((h / "Desktop", f"{EMU_TAG}_decoy_{RUN_ID}.txt"),
@@ -466,7 +479,7 @@ def p_wallet_inject(ctx: Context) -> None:
            note="decoy bundle only; no real wallet touched; no pkill; no download").emit()
 
 
-# ----------------------------------
+# ---------------------------------------------------------------------------
 # phases — persistence + backdoor
 # ---------------------------------------------------------------------------
 def _plist_body(prog_path: str) -> str:
