@@ -1,0 +1,840 @@
+{
+  "name": "SHub/Reaper \u2014 Coverage (harness vs article)",
+  "versions": {
+    "attack": "15",
+    "navigator": "4.9.1",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "SHub/Reaper macOS infostealer (SentinelOne, May 2026). Green = emulated by reaper.py (dark=full, light=partial); blue = telemetry marker only (network out of scope); red = present in the article but NOT emulated. Source rows distinguished in ATTACK_MAPPING_FULL.md.",
+  "filters": {
+    "platforms": [
+      "macOS"
+    ]
+  },
+  "sorting": 0,
+  "layout": {
+    "layout": "side",
+    "showID": true,
+    "showName": true,
+    "aggregateFunction": "average"
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1592",
+      "score": 10,
+      "color": "#d62728",
+      "comment": "Gather Victim Host Information \u2014 article-only: NOT emulated by harness",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "none"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1591",
+      "score": 10,
+      "color": "#d62728",
+      "comment": "Gather Victim Org Information \u2014 article-only: NOT emulated by harness",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "none"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1583.001",
+      "score": 10,
+      "color": "#d62728",
+      "comment": "Acquire Infrastructure: Domains \u2014 article-only: NOT emulated by harness",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "none"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1608.001",
+      "score": 10,
+      "color": "#d62728",
+      "comment": "Stage Capabilities: Upload Malware \u2014 article-only: NOT emulated by harness",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "none"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1587",
+      "score": 10,
+      "color": "#d62728",
+      "comment": "Develop Capabilities \u2014 article-only: NOT emulated by harness",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "none"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1588",
+      "score": 10,
+      "color": "#d62728",
+      "comment": "Obtain Capabilities \u2014 article-only: NOT emulated by harness",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "none"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1566.002",
+      "score": 10,
+      "color": "#d62728",
+      "comment": "Phishing: Spearphishing Link \u2014 article-only: NOT emulated by harness",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "none"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1189",
+      "score": 10,
+      "color": "#d62728",
+      "comment": "Drive-by Compromise \u2014 article-only: NOT emulated by harness",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "none"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1204.002",
+      "score": 100,
+      "color": "#2ca02c",
+      "comment": "User Execution: Malicious File \u2014 harness: full emulation",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "full"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1059.002",
+      "score": 100,
+      "color": "#2ca02c",
+      "comment": "Command and Scripting Interpreter: AppleScript \u2014 harness: full emulation",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "full"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1059.004",
+      "score": 100,
+      "color": "#2ca02c",
+      "comment": "Command and Scripting Interpreter: Unix Shell \u2014 harness: full emulation",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "full"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1218",
+      "score": 100,
+      "color": "#2ca02c",
+      "comment": "System Binary Proxy Execution \u2014 harness: full emulation",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "full"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1543.001",
+      "score": 100,
+      "color": "#2ca02c",
+      "comment": "Create or Modify System Process: Launch Agent \u2014 harness: full emulation",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "full"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1547",
+      "score": 100,
+      "color": "#2ca02c",
+      "comment": "Boot or Logon Autostart Execution \u2014 harness: full emulation",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "full"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1140",
+      "score": 100,
+      "color": "#2ca02c",
+      "comment": "Deobfuscate/Decode Files or Information \u2014 harness: full emulation",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "full"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1027",
+      "score": 100,
+      "color": "#2ca02c",
+      "comment": "Obfuscated Files or Information \u2014 harness: full emulation",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "full"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1027.003",
+      "score": 10,
+      "color": "#d62728",
+      "comment": "Steganography \u2014 article-only: NOT emulated by harness",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "none"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1036",
+      "score": 60,
+      "color": "#98df8a",
+      "comment": "Masquerading \u2014 harness: partial emulation",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "partial"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1036.005",
+      "score": 100,
+      "color": "#2ca02c",
+      "comment": "Masquerading: Match Legitimate Name or Location \u2014 harness: full emulation",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "full"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1656",
+      "score": 60,
+      "color": "#98df8a",
+      "comment": "Impersonation \u2014 harness: partial emulation",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "partial"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1497.001",
+      "score": 100,
+      "color": "#2ca02c",
+      "comment": "Virtualization/Sandbox Evasion: System Checks \u2014 harness: full emulation",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "full"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1480",
+      "score": 60,
+      "color": "#98df8a",
+      "comment": "Execution Guardrails \u2014 harness: partial emulation",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "partial"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1622",
+      "score": 10,
+      "color": "#d62728",
+      "comment": "Debugger Evasion \u2014 article-only: NOT emulated by harness",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "none"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1553.001",
+      "score": 100,
+      "color": "#2ca02c",
+      "comment": "Subvert Trust Controls: Gatekeeper Bypass \u2014 harness: full emulation",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "full"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1553.002",
+      "score": 100,
+      "color": "#2ca02c",
+      "comment": "Subvert Trust Controls: Code Signing \u2014 harness: full emulation",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "full"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1222.002",
+      "score": 100,
+      "color": "#2ca02c",
+      "comment": "File and Directory Permissions Modification: Linux and Mac File and Directory Permissions Modification \u2014 harness: full emulation",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "full"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1070.004",
+      "score": 100,
+      "color": "#2ca02c",
+      "comment": "Indicator Removal: File Deletion \u2014 harness: full emulation",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "full"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1070.006",
+      "score": 100,
+      "color": "#2ca02c",
+      "comment": "Indicator Removal: Timestomp \u2014 harness: full emulation",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "full"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1564.001",
+      "score": 60,
+      "color": "#98df8a",
+      "comment": "Hide Artifacts: Hidden Files and Directories \u2014 harness: partial emulation",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "partial"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1562.001",
+      "score": 10,
+      "color": "#d62728",
+      "comment": "Impair Defenses: Disable or Modify Tools \u2014 article-only: NOT emulated by harness",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "none"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1056.002",
+      "score": 10,
+      "color": "#d62728",
+      "comment": "Input Capture: GUI Input Capture \u2014 article-only: NOT emulated by harness",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "none"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1555",
+      "score": 60,
+      "color": "#98df8a",
+      "comment": "Credentials from Password Stores \u2014 harness: partial emulation",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "partial"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1555.001",
+      "score": 100,
+      "color": "#2ca02c",
+      "comment": "Credentials from Password Stores: Keychain \u2014 harness: full emulation",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "full"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1555.003",
+      "score": 100,
+      "color": "#2ca02c",
+      "comment": "Credentials from Password Stores: Credentials from Web Browsers \u2014 harness: full emulation",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "full"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1539",
+      "score": 60,
+      "color": "#98df8a",
+      "comment": "Steal Web Session Cookie \u2014 harness: partial emulation",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "partial"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1552.001",
+      "score": 60,
+      "color": "#98df8a",
+      "comment": "Unsecured Credentials: Credentials In Files \u2014 harness: partial emulation",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "partial"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1082",
+      "score": 100,
+      "color": "#2ca02c",
+      "comment": "System Information Discovery \u2014 harness: full emulation",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "full"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1614.001",
+      "score": 100,
+      "color": "#2ca02c",
+      "comment": "System Location Discovery: System Language Discovery \u2014 harness: full emulation",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "full"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1083",
+      "score": 100,
+      "color": "#2ca02c",
+      "comment": "File and Directory Discovery \u2014 harness: full emulation",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "full"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1217",
+      "score": 60,
+      "color": "#98df8a",
+      "comment": "Browser Information Discovery \u2014 harness: partial emulation",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "partial"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1518",
+      "score": 100,
+      "color": "#2ca02c",
+      "comment": "Software Discovery \u2014 harness: full emulation",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "full"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1005",
+      "score": 100,
+      "color": "#2ca02c",
+      "comment": "Data from Local System \u2014 harness: full emulation",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "full"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1119",
+      "score": 100,
+      "color": "#2ca02c",
+      "comment": "Automated Collection \u2014 harness: full emulation",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "full"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1074.001",
+      "score": 100,
+      "color": "#2ca02c",
+      "comment": "Data Staged: Local Data Staging \u2014 harness: full emulation",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "full"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1560.001",
+      "score": 100,
+      "color": "#2ca02c",
+      "comment": "Archive Collected Data: Archive via Utility \u2014 harness: full emulation",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "full"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1071.001",
+      "score": 40,
+      "color": "#1f77b4",
+      "comment": "Application Layer Protocol: Web Protocols \u2014 harness: telemetry marker only (network out of scope)",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "marker"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1105",
+      "score": 40,
+      "color": "#1f77b4",
+      "comment": "Ingress Tool Transfer \u2014 harness: telemetry marker only (network out of scope)",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "marker"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1102",
+      "score": 10,
+      "color": "#d62728",
+      "comment": "Web Service \u2014 article-only: NOT emulated by harness",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "none"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1041",
+      "score": 40,
+      "color": "#1f77b4",
+      "comment": "Exfiltration Over C2 Channel \u2014 harness: telemetry marker only (network out of scope)",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "marker"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1030",
+      "score": 60,
+      "color": "#98df8a",
+      "comment": "Data Transfer Size Limits \u2014 harness: partial emulation",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "partial"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1567",
+      "score": 10,
+      "color": "#d62728",
+      "comment": "Exfiltration Over Web Service \u2014 article-only: NOT emulated by harness",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "none"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1554",
+      "score": 100,
+      "color": "#2ca02c",
+      "comment": "Compromise Host Software Binary \u2014 harness: full emulation",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "full"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1574",
+      "score": 60,
+      "color": "#98df8a",
+      "comment": "Hijack Execution Flow \u2014 harness: partial emulation",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "partial"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1489",
+      "score": 10,
+      "color": "#d62728",
+      "comment": "Service Stop \u2014 article-only: NOT emulated by harness",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "none"
+        }
+      ],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1657",
+      "score": 10,
+      "color": "#d62728",
+      "comment": "Financial Theft \u2014 article-only: NOT emulated by harness",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "coverage",
+          "value": "none"
+        }
+      ],
+      "showSubtechniques": true
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#d62728",
+      "#98df8a",
+      "#2ca02c"
+    ],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "Full emulation",
+      "color": "#2ca02c"
+    },
+    {
+      "label": "Partial emulation",
+      "color": "#98df8a"
+    },
+    {
+      "label": "Marker only (net out of scope)",
+      "color": "#1f77b4"
+    },
+    {
+      "label": "Article-only (gap)",
+      "color": "#d62728"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "family",
+      "value": "SHub / Reaper"
+    },
+    {
+      "name": "source",
+      "value": "SentinelOne (Stokes, 2026-05-18)"
+    },
+    {
+      "name": "harness",
+      "value": "ctem_emu_reaper.py"
+    }
+  ],
+  "showTacticRowBackground": true,
+  "tacticRowBackground": "#205b8f",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}
