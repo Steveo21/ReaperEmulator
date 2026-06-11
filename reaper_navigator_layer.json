@@ -1,12 +1,12 @@
 {
   "name": "SHub/Reaper \u2014 Coverage (harness vs article)",
   "versions": {
-    "attack": "15",
+    "attack": "19",
     "navigator": "4.9.1",
     "layer": "4.5"
   },
   "domain": "enterprise-attack",
-  "description": "SHub/Reaper macOS infostealer (SentinelOne, May 2026). Green = emulated by reaper.py (dark=full, light=partial); blue = telemetry marker only (network out of scope); red = present in the article but NOT emulated. Source rows distinguished in ATTACK_MAPPING_FULL.md.",
+  "description": "SHub/Reaper macOS infostealer (SentinelOne, May 2026). Mapped to ATT&CK v19 (Defense Evasion split: Stealth + Defense Impairment). Green = emulated by ctem_emu_reaper.py (dark=full, light=partial); blue = telemetry marker only (network out of scope); red = present in the article but NOT emulated.",
   "filters": {
     "platforms": [
       "macOS"
@@ -288,10 +288,10 @@
       "showSubtechniques": true
     },
     {
-      "techniqueID": "T1656",
+      "techniqueID": "T1684.001",
       "score": 60,
       "color": "#98df8a",
-      "comment": "Impersonation \u2014 harness: partial emulation",
+      "comment": "Social Engineering: Impersonation \u2014 harness: partial emulation",
       "enabled": true,
       "metadata": [
         {
@@ -428,10 +428,10 @@
       "showSubtechniques": true
     },
     {
-      "techniqueID": "T1562.001",
+      "techniqueID": "T1685",
       "score": 10,
       "color": "#d62728",
-      "comment": "Impair Defenses: Disable or Modify Tools \u2014 article-only: NOT emulated by harness",
+      "comment": "Disable or Modify Tools \u2014 article-only: NOT emulated by harness",
       "enabled": true,
       "metadata": [
         {
@@ -831,6 +831,14 @@
     {
       "name": "harness",
       "value": "ctem_emu_reaper.py"
+    },
+    {
+      "name": "attack_version",
+      "value": "v19.1 (2026-04-28)"
+    },
+    {
+      "name": "v19_remaps",
+      "value": "T1656 -> T1684.001; T1562.001 -> T1685"
     }
   ],
   "showTacticRowBackground": true,
